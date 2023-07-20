@@ -12,7 +12,9 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://data.fixer.io/api/latest?access_key=")
+      .get(
+        `http://data.fixer.io/api/latest?access_key=${process.env.REACT_APP_API_KEY}`
+      )
       .then((response) => {
         setRates(response.data.rates);
       });
