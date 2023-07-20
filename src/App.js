@@ -18,23 +18,27 @@ function App() {
       });
   }, []);
 
+  function format(number) {
+    return number.toFixed(2);
+  }
+
   function handleAmount1Change(amount1) {
-    setAmount2((amount1 * rates[currency2]) / rates[currency1]);
+    setAmount2(format(amount1 * rates[currency2]) / rates[currency1]);
     setAmount1(amount1);
   }
 
   function handleCurrency1Change(currency1) {
-    setAmount2((amount1 * rates[currency2]) / rates[currency1]);
+    setAmount2(format(amount1 * rates[currency2]) / rates[currency1]);
     setCurrency1(currency1);
   }
 
   function handleAmount2Change(amount2) {
-    setAmount1((amount2 * rates[currency1]) / rates[currency2]);
+    setAmount1(format(amount2 * rates[currency1]) / rates[currency2]);
     setAmount2(amount2);
   }
 
   function handleCurrency2Change(currency2) {
-    setAmount1((amount2 * rates[currency1]) / rates[currency2]);
+    setAmount1(format(amount2 * rates[currency1]) / rates[currency2]);
     setCurrency2(currency2);
   }
 
@@ -48,8 +52,8 @@ function App() {
         currency={currency1}
       />
       <CurrencyInput
-        onAmountChange={setAmount2}
-        onCurrencyChange={setCurrency2}
+        onAmountChange={handleAmount2Change}
+        onCurrencyChange={handleCurrency2Change}
         currencies={Object.keys(rates)}
         amount={amount2}
         currency={currency2}
