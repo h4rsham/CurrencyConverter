@@ -18,11 +18,31 @@ function App() {
       });
   }, []);
 
+  function handleAmount1Change(amount1) {
+    setAmount2((amount1 * rates[currency2]) / rates[currency1]);
+    setAmount1(amount1);
+  }
+
+  function handleCurrency1Change(currency1) {
+    setAmount2((amount1 * rates[currency2]) / rates[currency1]);
+    setCurrency1(currency1);
+  }
+
+  function handleAmount2Change(amount2) {
+    setAmount1((amount2 * rates[currency1]) / rates[currency2]);
+    setAmount2(amount2);
+  }
+
+  function handleCurrency2Change(currency2) {
+    setAmount1((amount2 * rates[currency1]) / rates[currency2]);
+    setCurrency2(currency2);
+  }
+
   return (
     <div className="App">
       <CurrencyInput
-        onAmountChange={setAmount1}
-        onCurrencyChange={setCurrency1}
+        onAmountChange={handleAmount1Change}
+        onCurrencyChange={handleCurrency1Change}
         currencies={Object.keys(rates)}
         amount={amount1}
         currency={currency1}
