@@ -51,7 +51,8 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div>
+      <h1>Currency Converter</h1>
       <CurrencyInput
         onAmountChange={handleAmount1Change}
         onCurrencyChange={handleCurrency1Change}
