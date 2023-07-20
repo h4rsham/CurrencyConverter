@@ -4,9 +4,6 @@
 
 A cutting edge, revolutionary, never been seen before Currency Converter :)
 
-## Demo
-
-[Find the Deployed Site Here](https://currencyconverter-pv62.onrender.com/)
 ## Getting Started
 
 ### Prerequisites
