@@ -10,6 +10,8 @@ function App() {
   const [currency2, setCurrency2] = useState("USD"); // currency 2 is the second currency
   const [rates, setRates] = useState([]);
 
+  const REACT_APP_API_KEY = ""
+
   useEffect(() => { // fetch the exchange rates from the API as soon as the component renders
     axios
       .get( // make a GET request to the API
