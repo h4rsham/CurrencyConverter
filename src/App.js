@@ -6,7 +6,7 @@ import axios from "axios";
 function App() {
   const [amount1, setAmount1] = useState(1);
   const [amount2, setAmount2] = useState(1);
-  const [currency1, setCurrency1] = useState("USD");
+  const [currency1, setCurrency1] = useState("GBP");
   const [currency2, setCurrency2] = useState("USD");
   const [rates, setRates] = useState([]);
 
@@ -18,8 +18,14 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    if (!!rates) {
+      handleAmount1Change(1);
+    }
+  }, [rates]);
+
   function format(number) {
-    return number.toFixed(2);
+    return number.toFixed(4);
   }
 
   function handleAmount1Change(amount1) {

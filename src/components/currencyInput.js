@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
+import "./currencyInput.css";
 
 export default function CurrencyInput(props) {
   // props is used here to pass data from parent to child
+
   return (
     <div className="group">
       <input
@@ -14,7 +16,9 @@ export default function CurrencyInput(props) {
         onChange={(ev) => props.onCurrencyChange(ev.target.value)}
       >
         {props.currencies.map((currency) => (
-          <option value={currency}>{currency}</option>
+          <option key={currency} value={currency}>
+            {currency}
+          </option>
         ))}
       </select>
     </div>
