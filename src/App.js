@@ -13,18 +13,18 @@ function App() {
   useEffect(() => { // fetch the exchange rates from the API as soon as the component renders
     axios
       .get( // make a GET request to the API
-        `http://data.fixer.io/api/latest?access_key=${process.env.REACT_APP_API_KEY}`
+        `https://data.fixer.io/api/latest?access_key=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => { // when the response is received from the API call, do the following:
         setRates(response.data.rates); // set the rates state Array to the rates returned from the API
       });
   }, []);
 
-  useEffect(() => { // implemented so that the amount in the second currency is updated when the site loads
-    if (!!rates) {
-      handleAmount1Change(1);
-    }
-  }, [rates]);
+  useEffect(() => {
+  // This useEffect hook will run only once when the component is mounted because of the empty dependency array
+  handleAmount1Change(1); // Update the amount in the second currency when the site loads
+}, []);
+
 
   function format(number) { // format the currency number to 2 decimal places
     return number.toFixed(2);
