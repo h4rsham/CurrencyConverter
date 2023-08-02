@@ -6,10 +6,7 @@ const port = 5000; // Replace this with your desired port number
 
 app.get('/api/latest', async (req, res) => {
   try {
-    const apiResponse = await axios.get('http://data.fixer.io/api/latest', {
-      params: {
-        access_key: 'YOUR_API_KEY_HERE', // Replace with your actual API key
-      },
+    const apiResponse = await axios.get(`http://data.fixer.io/api/latest?access_key=${REACT_APP_API_KEY}`, {
     });
     res.json(apiResponse.data);
   } catch (error) {
