@@ -15,7 +15,7 @@ function App() {
   useEffect(() => { // fetch the exchange rates from the API as soon as the component renders
     axios
       .get( // make a GET request to the API
-      `http://data.fixer.io/api/latest?access_key=${REACT_APP_API_KEY}`
+      `/api/latest`
       )
       .then((response) => { // when the response is received from the API call, do the following:
         setRates(response.data.rates); // set the rates state Array to the rates returned from the API
