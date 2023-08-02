@@ -15,7 +15,7 @@ function App() {
   useEffect(() => { // fetch the exchange rates from the API as soon as the component renders
     axios
       .get( // make a GET request to the API
-      'https://currency-converter-git-deployed-h4rsham.vercel.app/api/latest'
+      '/api/latest'
       )
       .then((response) => { // when the response is received from the API call, do the following:
         setRates(response.data.rates); // set the rates state Array to the rates returned from the API
