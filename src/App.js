@@ -12,13 +12,11 @@ function App() {
 
   const REACT_APP_API_KEY = ""
 
-  useEffect(() => { // fetch the exchange rates from the API as soon as the component renders
+  useEffect(() => {
     axios
-      .get( // make a GET request to the API
-      '/api/latest'
-      )
-      .then((response) => { // when the response is received from the API call, do the following:
-        setRates(response.data.rates); // set the rates state Array to the rates returned from the API
+      .get(`http://data.fixer.io/api/latest?access_key=${process.env.REACT_APP_API_KEY}`)
+      .then((response) => {
+        setRates(response.data.rates);
       });
   }, []);
 
